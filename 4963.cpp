@@ -4,7 +4,7 @@
     - 섬 : 가로, 세로, 대각선으로 연결된 땅은 하나의 섬으로 취급한다.
 
 - 풀이
-    - 가정 : bfs를 통해 하나의 섬에 대해 연결된 땅을 모두 찾았다고 가정.
+    - 가정 : dfs를 통해 하나의 섬에 대해 연결된 땅을 모두 찾았다고 가정.
         - 탐색을 완료한 땅은 false로 변경하여 재탐색하지 않게 함.
 */
 #include <iostream>
@@ -15,7 +15,7 @@ int landNum; // 섬 개수
 int w;
 int h;
  
-void bfs(vector<vector <bool> > &map, int y, int x){
+void dfs(vector<vector <bool> > &map, int y, int x){
     if(!map[y][x]) // 탐색한 경우 or 바다인 경우
         return;
     if(map[y][x] == true){
@@ -23,37 +23,37 @@ void bfs(vector<vector <bool> > &map, int y, int x){
 
         if(x > 0){
             if(map[y][x-1])
-                bfs(map, y, x-1);
+                dfs(map, y, x-1);
             if(y > 0){
                 if(map[y-1][x-1])
-                    bfs(map, y-1, x-1);
+                    dfs(map, y-1, x-1);
             }
             if(y < h-1){
                 if(map[y+1][x-1])
-                    bfs(map, y+1, x-1);
+                    dfs(map, y+1, x-1);
             }
         }
         if(x < w-1){
             if(map[y][x+1])
-                bfs(map, y, x+1);
+                dfs(map, y, x+1);
             
             if(y > 0){
                 if(map[y-1][ x+1])
-                    bfs(map,y-1, x+1);
+                    dfs(map,y-1, x+1);
             }
             if(y < h-1){
                 if(map[y+1][x+1])
-                    bfs(map, y+1, x+1);
+                    dfs(map, y+1, x+1);
             }
             
         }
         if(y > 0){
             if(map[y-1][x])
-                bfs(map, y-1, x);
+                dfs(map, y-1, x);
         }
         if(y < h-1){
             if(map[y+1][x])
-                bfs(map, y+1, x);
+                dfs(map, y+1, x);
         }
     }
     
@@ -81,7 +81,7 @@ int main(){
             for(int i=0; i < w; i++){
                 if (map[j][i]){
                     landNum++;
-                    bfs(map, j, i);
+                    dfs(map, j, i);
                 }
             }
         }
