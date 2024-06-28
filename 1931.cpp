@@ -2,6 +2,7 @@
 /*
 - 문제 풀이:
     뒤에서 부터 시작 시간이 가장 늦은 것을 선택.
+    greedy
 */
 
 
@@ -10,7 +11,16 @@
 #include <algorithm>
 using namespace std;
 
+bool compare(pair <long, long> a, pair <long, long> b){
+    if(a.second == b.second)
+        return a.first < b.first;
+    else
+        return a.second < b.second;
+}
+
 int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     int N;
     cin >> N;
 
@@ -18,26 +28,20 @@ int main(){
 
     for(int n = 0; n < N; n++){
         long t1, t2;
+        
         cin >> t1 >> t2;
         t.push_back(make_pair(t1, t2));
     }
 
-    sort(t.begin(), t.end());
+    sort(t.begin(), t.end(), compare);
 
     int max = 0;
-    for(int n = N-1; n>=0; n--){
-        int num = 1;
-        long nStart = t[n].first;
-        for(int m = n-1; m>=0; m--){
-            if(t[m].second <= nStart){
-                num++;
-                nStart = t[m].first;
-            }
-            else
-                continue;
+    long end = 0;
+    for(int n = 0; n<N; n++){
+        if(t[n].first >= end){
+            max++;
+            end = t[n].second;
         }
-        if(num > max)
-            max = num;
     }
 
     cout << max;

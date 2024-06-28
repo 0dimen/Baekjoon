@@ -1,5 +1,9 @@
 // 11866 요세푸스 문제 0 https://www.acmicpc.net/problem/11866
 
+/*
+    순환하는 배열의 index를 구하는 방법 : index %= array.size(),
+    index += K-1 에서 1을 뺀 이유 : 매번 배열에서 값이 1개씩 삭제되기 때문.
+*/
 #include <iostream>
 #include <vector>
 using namespace std;
