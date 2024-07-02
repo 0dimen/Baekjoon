@@ -9,6 +9,7 @@
         "tuple": "cpp",
         "bitset": "cpp",
         "set": "cpp",
-        "__locale": "cpp"
+        "__locale": "cpp",
+        "queue": "cpp"
     }
 }
