@@ -12,6 +12,7 @@
         "__locale": "cpp",
         "queue": "cpp",
         "ios": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "cstddef": "cpp"
     }
 }
