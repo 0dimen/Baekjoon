@@ -11,6 +11,7 @@
         "set": "cpp",
         "__locale": "cpp",
         "queue": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "variant": "cpp"
     }
 }
