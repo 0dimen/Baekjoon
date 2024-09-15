@@ -13,6 +13,7 @@
         "queue": "cpp",
         "ios": "cpp",
         "variant": "cpp",
-        "cstddef": "cpp"
+        "cstddef": "cpp",
+        "list": "cpp"
     }
 }
