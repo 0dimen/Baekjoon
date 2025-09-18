@@ -24,4 +24,4 @@ while (balloons.length > 0) {
   }
 }
 
-console.log(answer);
+console.log(answer.join(" "));
